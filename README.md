@@ -3,8 +3,10 @@
 ## 绘制函数：get_forestplot()
 
 ## 安装
+```R
 devtools::install_github("Backfire991/FORESTPLOT.PAC")
 library(FORESTPLOT.PAC)
+```
 
 ## 示例
 ```R
