@@ -16,14 +16,14 @@ get_forestplot(
   estimate = NULL,
   ci_low = NULL,
   ci_high = NULL,
-  xlimit = c(-1, 2),
+  xlimit = c(0.75, 2),
   xstep = 0.5,
   ref_line_x = 0,
   ref_line_color = "black",
   ref_line_type = "dashed",
-  right_mv = 0.75,
-  first_col_mv = -0.75,
-  last_col_mv = 0.2,
+  right_mv = 1.5,
+  first_col_mv = -1,
+  last_col_mv = 0,
   chr_in_quote = " to ",
   box_shape = 15,
   box_size = 3,
@@ -34,15 +34,24 @@ get_forestplot(
   xline_color = "black",
   xline_text_size = 12,
   xline_text_color = "black",
-  xline_text_family = "Arial",
+  xline_text_family = "sans",
   xline_text_bi = "plain",
   text_table_size = 4,
   text_table_color = "black",
-  text_table_family = "Arial",
+  text_table_family = "sans",
   text_table_bi = "plain",
   text_heading_size = 4,
-  text_heading_family = "Arial",
-  global_digits = 2
+  text_heading_family = "sans",
+  global_digits = 2,
+  hand_digits_vars = NULL,
+  hand_digits = 3,
+  col_hjust = 0.8,
+  hjust_value = 0.5,
+  table_scale = 1.25,
+  group_var = NULL,
+  group_var_value = NULL,
+  group_var_value_bold = FALSE,
+  retract_string = "  "
 )
 }
 \arguments{
@@ -110,7 +119,25 @@ get_forestplot(
 
 \item{text_heading_family}{string, 指定图形纵标目的文字字体，请确保字体可用，本函数不做字体可用性以及UTF-8校验}
 
-\item{global_digits}{int, 指定图形层全局的数字小数位数，不足则强制补0}
+\item{global_digits}{int，指定图形表格层全局的数字小数位数，不足则强制补0}
+
+\item{hand_digits_vars}{vector，指定需要调整小数显示位数的列名称}
+
+\item{hand_digits}{num，指定需要调整小数显示位数的全局数字小数位数，不足则强制补0}
+
+\item{col_hjust}{num，指定纵标目到其下边线的距离}
+
+\item{hjust_value}{num，指定表格层数据对齐方式，0为左对齐，0.5位居中对齐，1为右对齐，默认为0.5，首列强制居左对齐}
+
+\item{table_scale}{num，指定表格层间距，不影响森林图层scale}
+
+\item{group_var}{string，指定分组变量列名，可缺省，若使用则需要与group_var_value对应且同时提供}
+
+\item{group_var_value}{vector，字符串向量，指定首列中无需缩进的分组变量值（亚组名），可缺省}
+
+\item{group_var_value_bold}{logic，逻辑值，指定是否需要对无需缩进的分组变量值（亚组名）显示加粗，默认为否}
+
+\item{retract_string}{string，指定需要缩进的分组缩进量，使用半角空格确定，例如"   "，默认为3个半角空格}
 }
 \value{
 A ggplot2 object
