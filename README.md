@@ -12,12 +12,61 @@ library(FORESTPLOT.PAC)
 
 ## 示例
 ```R
+# 基本使用
 get_forestplot(df = res,
-               left_side_data = res[,1:4],
-               estimate = 'HR', 
-               ci_low = 'HR_lower',
-               ci_high = 'HR_upper',
-               xlimit = c(0.5, 2.5))
+                left_side_data = res[,1:4],
+                estimate = 'HR', 
+                ci_low = 'HR_lower',
+                ci_high = 'HR_upper',
+                xlimit = c(0.5, 2.5)
+)
+
+# 全参数示例
+get_forestplot(df = df,
+                left_side_data = df[, 1:3],
+                right_side_data = df[, 4:6],
+                estimate = 'HR',
+                ci_low = 'HR_lower',
+                ci_high = 'HR_upper',
+                xlimit = c(0.75, 2.2),
+                xstep = 0.5,
+                ref_line_x = 0,
+                ref_line_color = 'black',
+                ref_line_type = 'dashed',
+                right_mv = 1.5,
+                first_col_mv = -1,
+                last_col_mv = 0,
+                chr_in_quote = ' to ',
+                box_shape = 15,
+                box_size = 3,
+                box_color = 'black',
+                headline_size = 0.5,
+                headline_color = 'black',
+                x_line_size = 0.5,
+                xline_color = 'black',
+                xline_text_size = 12,
+                xline_text_color = 'black',
+                xline_text_family = 'sans',
+                xline_text_bi = 'plain',
+                text_table_size = 4,
+                text_table_color = 'black',
+                text_table_family = 'sans',
+                text_table_bi = 'plain',
+                text_heading_size = 4,
+                text_heading_family = 'sans',
+                global_digits = 2,
+                hand_digits_vars = NULL,
+                hand_digits = 3,
+                col_hjust = 0.8,
+                hjust_value = 0.5,
+                table_scale = 1.25,
+                group_var = 'Subgroup' ,
+                group_var_value = c("Age","Sex","BMI","Education","Family Cancer",,
+                  "Areas","Cooking fuels type","Second-hand smoke exposure",,
+                  "Years exposure to solid fuels") ,
+                group_var_value_bold = TRUE ,
+                retract_string = '  '
+)
 ```
              
 ## 参数
