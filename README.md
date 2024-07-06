@@ -94,7 +94,7 @@ get_forestplot(df = df,
 #' @param xline_text_size string，指定x轴字体
 #' @param xline_text_color string，指定x轴字体
 #' @param xline_text_family string，指定x轴字体
-#' @param xline_text_bi string，指定x轴是否需要加粗或斜体
+#' @param xline_text_bi string，指定x轴是否需要加粗（bold）或斜体（Italy）
 #' @param text_table_size num, 指定图形表格层的文字大小
 #' @param text_table_color string，指定图形表格层的文字颜色
 #' @param text_table_family string, 指定图形表格层的文字字体，请确保字体可用，本函数不做字体可用性以及UTF-8校验
