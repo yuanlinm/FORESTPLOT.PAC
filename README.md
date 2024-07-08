@@ -106,7 +106,7 @@ get_forestplot(df = df,
 #' @param hand_digits num，指定需要调整小数显示位数的全局数字小数位数，不足则强制补0
 #' @param col_hjust num，指定纵标目到其下边线的距离
 #' @param hjust_value num，指定表格层数据对齐方式，0为左对齐，0.5位居中对齐，1为右对齐，默认为0.5，首列强制居左对齐
-#' @param table_scale num，指定表格层间距，不影响森林图层scale
+#' @param table_scale num，指定表格层间距，不影响森林图层scale，这个值越大，表格文字间的纵向间隙越小
 #' @param group_var string，指定分组变量列名，可缺省，若使用则需要与group_var_value对应且同时提供
 #' @param group_var_value vector，字符串向量，指定首列中无需缩进的分组变量值（亚组名），可缺省
 #' @param group_var_value_bold logic，逻辑值，指定是否需要对无需缩进的分组变量值（亚组名）显示加粗，默认为否
