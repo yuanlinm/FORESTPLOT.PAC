@@ -6,7 +6,7 @@
 
 ## 安装
 ```R
-devtools::install_github("Backfire991/FORESTPLOT.PAC")
+devtools::install_github("yuanlinm/FORESTPLOT.PAC")
 library(FORESTPLOT.PAC)
 ```
 
