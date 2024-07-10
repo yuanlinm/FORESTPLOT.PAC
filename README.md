@@ -72,7 +72,8 @@ get_forestplot(df = df,
              
 ## 参数
 ```R
-#' @param df data_frame, 用于绘图的总数据集，必须提供，请保证与后续左右显示表格层数据集行数一致，本函数不提供数据集各式校验
+
+#' @param df data_frame, 用于绘图的总数据集，必须提供，请保证与后续左右显示表格层数据集行数一致，本函数不提供数据集格式校验
 #' @param left_side_data data_frame, 用于展示在左边的数据表格，必须提供，请保证与后续的置信区间行数一致，本函数不提供格式校验
 #' @param right_side_data data_frame, 用于展示在右边的数据表格，可以缺省，本函数不提供格式校验
 #' @param estimate vector, 效应值，请保证该效应在尺度或转换上与后续的置信区间一致，本函数不提供期望或自然对数转换
@@ -104,7 +105,16 @@ get_forestplot(df = df,
 #' @param text_table_bi string，指定图形表格层文字是否需要加粗或者斜体
 #' @param text_heading_size num，指定图形纵标目字体大小
 #' @param text_heading_family string, 指定图形纵标目的文字字体，请确保字体可用，本函数不做字体可用性以及UTF-8校验
-#' @param global_digits int, 指定图形层全局的数字小数位数，不足则强制补0
-#' @import tidyverse 
+#' @param global_digits int，指定图形表格层全局的数字小数位数，不足则强制补0
+#' @param hand_digits_vars vector，指定需要调整小数显示位数的列名称
+#' @param hand_digits num，指定需要调整小数显示位数的全局数字小数位数，不足则强制补0
+#' @param col_hjust num，指定纵标目到其下边线的距离
+#' @param hjust_value num，指定表格层数据对齐方式，0为左对齐，0.5位居中对齐，1为右对齐，默认为0.5，首列强制居左对齐
+#' @param table_scale num，指定表格层间距，不影响森林图层scale
+#' @param group_var string，指定分组变量列名，可缺省，若使用则需要与group_var_value对应且同时提供
+#' @param group_var_value vector，字符串向量，指定首列中无需缩进的分组变量值（亚组名），可缺省
+#' @param group_var_value_bold logic，逻辑值，指定是否需要对无需缩进的分组变量值（亚组名）显示加粗，默认为否
+#' @param retract_string string，指定需要缩进的分组缩进量，使用半角空格确定，例如"   "，默认为3个半角空格
+#' @import tidyverse
 #' @return A ggplot2 object
 ```
