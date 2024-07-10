@@ -97,7 +97,7 @@ get_forestplot = function(df = NULL,
                           retract_string = '  ') {
   ################################################################
 
-  if (is.null(df)) {
+   if (is.null(df)) {
     cat('---- df is null, please check your data! ---- \n')
   }
   # function main body
@@ -175,10 +175,12 @@ get_forestplot = function(df = NULL,
           return(column)
         }
       })
+
       # 处理全展示数据NA
       right_side_data = as.data.frame(apply(right_side_data, 2, function(x)
-      gsub('NA', NA, x)))
+        gsub('NA', NA, x)))
     }
+
     # 处理全展示数据NA
     left_side_data <- as.data.frame(apply(left_side_data, 2, function(x)
       gsub('NA', '', x)))
@@ -313,11 +315,11 @@ get_forestplot = function(df = NULL,
     # 添加图形右边的Estimate列
     df = df %>%
       mutate(Estimate = paste0(
-        sprintf("%.2f", !!sym(estimate)),
+        sprintf(paste0("%.", global_digits, 'f'), !!sym(estimate)),
         " (",
-        sprintf("%.2f", !!sym(ci_low)),
+        sprintf(paste0("%.", global_digits, 'f'), !!sym(ci_low)),
         chr_in_quote,
-        sprintf("%.2f", !!sym(ci_high)),
+        sprintf(paste0("%.", global_digits, 'f'), !!sym(ci_high)),
         ")"
       ))
 
