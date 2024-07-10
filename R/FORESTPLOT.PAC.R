@@ -175,12 +175,13 @@ get_forestplot = function(df = NULL,
           return(column)
         }
       })
+      # 处理全展示数据NA
+      right_side_data = as.data.frame(apply(right_side_data, 2, function(x)
+      gsub('NA', NA, x)))
     }
     # 处理全展示数据NA
     left_side_data <- as.data.frame(apply(left_side_data, 2, function(x)
       gsub('NA', '', x)))
-    right_side_data = as.data.frame(apply(right_side_data, 2, function(x)
-      gsub('NA', NA, x)))
     left_side_data$order_p = as.numeric(left_side_data$order_p)
 
     # 处理首列展示及缩进策略
