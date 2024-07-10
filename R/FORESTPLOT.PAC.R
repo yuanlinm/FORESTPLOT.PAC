@@ -63,8 +63,8 @@ get_forestplot = function(df = NULL,
                           ref_line_x = 0,
                           ref_line_color = 'black',
                           ref_line_type = 'dashed',
-                          right_mv = 1.5,
-                          first_col_mv = -1,
+                          right_mv = 0,
+                          first_col_mv = 0,
                           last_col_mv = 0,
                           chr_in_quote = ' to ',
                           box_shape = 15,
@@ -88,9 +88,9 @@ get_forestplot = function(df = NULL,
                           # new
                           hand_digits_vars = NULL,
                           hand_digits = 3,
-                          col_hjust = 0.8,
+                          col_hjust = 0,
                           hjust_value = 0.5,
-                          table_scale = 1.25,
+                          table_scale = 1,
                           group_var = NULL,
                           group_var_value = NULL,
                           group_var_value_bold = FALSE,
@@ -191,7 +191,7 @@ get_forestplot = function(df = NULL,
       bold_rows_y = left_side_data[which(left_side_data[[sym(group_var)]] %in% group_var_value), 'order_p']
       col_name = group_var
       cols_num_left = length(left_side_data)
-      col_mvs = -cols_num_left + 1 + right_mv + first_col_mv
+      col_mvs = -cols_num_left + 1 + right_mv + first_col_mv + + xlimit[1]
 
       # 修改首列标签，添加缩进
       left_side_data_first_col <- left_side_data %>%
@@ -227,7 +227,7 @@ get_forestplot = function(df = NULL,
     # 不处理首列加粗展示且不缩进策略
     if (is.null(group_var_value) & is.null(group_var)) {
       cols_num_left = length(left_side_data)
-      col_mvs = -cols_num_left + 1 + right_mv + first_col_mv
+      col_mvs = -cols_num_left + 1 + right_mv + first_col_mv + xlimit[1]
       p <- p + geom_text(
         data = left_side_data,
         aes_string(
@@ -247,7 +247,7 @@ get_forestplot = function(df = NULL,
       col_name <- names(left_side_data)[i]
       if (col_name != "order_p") {
         hjust_value_temp <- ifelse(i == 1, 0, hjust_value)
-        col_mvs = -cols_num_left + i + right_mv
+        col_mvs = -cols_num_left + i + right_mv + xlimit[1]
         col_mvs = ifelse(i == 1, col_mvs + first_col_mv, col_mvs)
         col_mvs = ifelse(i == max(seq_along(names(
           left_side_data
@@ -273,7 +273,7 @@ get_forestplot = function(df = NULL,
       col_name <- names(left_side_data)[i]
       if (col_name != "order_p") {
         hjust_value_temp <- ifelse(i == 1, 0, hjust_value)
-        col_mvs = -cols_num_left + i + right_mv
+        col_mvs = -cols_num_left + i + right_mv + xlimit[1]
         col_mvs = ifelse(i == 1, col_mvs + first_col_mv, col_mvs)
         col_mvs = ifelse(i == max(seq_along(names(
           left_side_data
@@ -331,19 +331,20 @@ get_forestplot = function(df = NULL,
     # 顺序指定
     right_side_data$order_p = c(nrow(right_side_data):1)
     # 全局最小值，全局最大值
-    cols_num_right = length(right_side_data) - 1 + xlimit[2] + 0.15
+    cols_num_lfet = -length(left_side_data) + 1 + xlimit[1] - 0.5
+    cols_num_right = length(right_side_data) - 1 + xlimit[2] + 0.5
+
     p = p + scale_x_continuous(
-      scale_x_continuous(expand = expansion(mult = c(0.01, 0.01))),
       breaks = seq(xlimit[1], xlimit[2], by = xstep),
-      labels = seq(xlimit[1], xlimit[2], by = xstep)
-      # limits = c(-cols_num_left + 1 + first_col_mv, cols_num_right)
+      labels = seq(xlimit[1], xlimit[2], by = xstep),
+      limits = c(cols_num_lfet, cols_num_right)
     )
 
     # 添加图形右边文字层，并设定默认
     for (i in seq_along(names(right_side_data))) {
       col_name <- names(right_side_data)[i]
       if (col_name != "order_p") {
-        col_mvs = xlimit[2] + 0.5 + i - 1
+        col_mvs = xlimit[2] - 0.5 + i
         p <- p + geom_text(
           data = right_side_data,
           aes_string(
@@ -364,7 +365,7 @@ get_forestplot = function(df = NULL,
     for (i in seq_along(names(right_side_data))) {
       col_name <- names(right_side_data)[i]
       if (col_name != "order_p") {
-        col_mvs <- xlimit[2] + 0.5 + i - 1
+        col_mvs <- xlimit[2] - 0.5 + i
         p <- p + annotate(
           "text",
           x = (col_mvs + 0.1) / table_scale,
@@ -392,3 +393,5 @@ get_forestplot = function(df = NULL,
     return(p)
   }
 }
+
+
