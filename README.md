@@ -71,8 +71,8 @@ get_forestplot(df = df,
 ```
              
 ## 参数
-```R
 
+```R
 #' @param df data_frame, 用于绘图的总数据集，必须提供，请保证与后续左右显示表格层数据集行数一致，本函数不提供数据集格式校验
 #' @param left_side_data data_frame, 用于展示在左边的数据表格，必须提供，请保证与后续的置信区间行数一致，本函数不提供格式校验
 #' @param right_side_data data_frame, 用于展示在右边的数据表格，可以缺省，本函数不提供格式校验
