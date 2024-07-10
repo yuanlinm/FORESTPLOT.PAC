@@ -65,9 +65,7 @@ get_forestplot(df = df,
                 hjust_value = 0.5,
                 table_scale = 1.25,
                 group_var = 'Subgroup' ,
-                group_var_value = c("Age","Sex","BMI","Education","Family Cancer",,
-                  "Areas","Cooking fuels type","Second-hand smoke exposure",,
-                  "Years exposure to solid fuels") ,
+                group_var_value = c("Age","Sex","BMI","Education","Family Cancer") ,
                 group_var_value_bold = TRUE ,
                 retract_string = '  '
 )
