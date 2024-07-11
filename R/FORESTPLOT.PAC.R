@@ -115,11 +115,10 @@ get_forestplot = function(df = NULL,
                  size = box_size,
                  color = box_color) +
       geom_errorbar(aes(
-        xmin = !!sym(ci_low),
-        xmax = !!sym(ci_high)
+        xmin = !!sym(ci_low) / bar_scale ,
+        xmax = !!sym(ci_high) / bar_scale
       ), width = 0) +
       theme_classic() +
-      scale_x_continuous(breaks = x / bar_scale, labels = x) +
       theme(
         axis.line.y = element_blank(),
         axis.text.y = element_blank(),
