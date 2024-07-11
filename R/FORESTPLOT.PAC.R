@@ -94,7 +94,10 @@ get_forestplot = function(df = NULL,
                           group_var = NULL,
                           group_var_value = NULL,
                           group_var_value_bold = FALSE,
-                          retract_string = '  ') {
+                          retract_string = '  ',
+                          # new
+                          bar_scale = 1
+                          ) {
   ################################################################
 
    if (is.null(df)) {
@@ -116,6 +119,7 @@ get_forestplot = function(df = NULL,
         xmax = !!sym(ci_high)
       ), width = 0) +
       theme_classic() +
+      scale_x_continuous(breaks = x / bar_scale, labels = x) +
       theme(
         axis.line.y = element_blank(),
         axis.text.y = element_blank(),

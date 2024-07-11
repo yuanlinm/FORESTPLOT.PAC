@@ -51,7 +51,8 @@ get_forestplot(
   group_var = NULL,
   group_var_value = NULL,
   group_var_value_bold = FALSE,
-  retract_string = "  "
+  retract_string = "  ",
+  bar_scale = 1
 )
 }
 \arguments{
