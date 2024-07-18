@@ -162,7 +162,7 @@ get_forestplot = function(df = NULL,
         if (is.numeric(column) &&
             column_name != 'order_p' &&
             column_name %in% hand_digits_vars) {
-          # 如果是数值型，则将小数位数格式化为global_digits位
+          # 如果是数值型，则将小数位数格式化为 hand_digits 位
           return(sprintf(paste0("%.", hand_digits, 'f'), column))
         } else {
           # 如果不是数值型，则保持原样
@@ -171,7 +171,7 @@ get_forestplot = function(df = NULL,
 
         # 检查列是否为数值型
         if (is.numeric(column) && column_name != 'order_p') {
-          # 如果是数值型，则将小数位数格式化为2位
+          # 如果是数值型，则将小数位数格式化为 global_digits 位
           return(sprintf(paste0("%.", global_digits, 'f'), x))
         } else {
           # 如果不是数值型，则保持原样
