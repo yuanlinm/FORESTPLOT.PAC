@@ -14,7 +14,7 @@ get_forestplot(df = res,
                estimate = 'HR', 
                ci_low = 'HR_lower',
                ci_high = 'HR_upper',
-               xlimit = c(0.5, 2.5))
+               xlimit = c(0.5, 2.5)
 )
 ```
 
