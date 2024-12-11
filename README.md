@@ -1,5 +1,6 @@
 # FORESTPLOT.PAC
-> 一个用于绘制森林图的R包，基于tidyverse，功能及语法简单，可以方便地重编以及输出
+> 一个用于绘制森林图的R包，基于tidyverse，功能及语法简单，可以方便地重编以及输出。
+> 建议结合eoffice::topptx()函数在Powerpoint中进一步调整图形细节。
 
 ## 安装 
 ```R
