@@ -1,7 +1,7 @@
 ## Introduction
-· 一个快速绘制漂亮简洁森林图的R包，功能易用，中文注释
-· 返回一个 `ggplot2` 对象，建议通过 `eoffice::topptx()` 输出后使用PowerPoint进行额外美化
-· 我为它取了一个好听的函数名 `forestify()`
+- 一个快速绘制漂亮简洁森林图的R包，功能易用，中文注释
+- 返回一个 `ggplot2` 对象，建议通过 `eoffice::topptx()` 输出后使用PowerPoint进行额外美化
+- 我为它取了一个好听的函数名 `forestify()`
 
 ## Installation
 ```R
