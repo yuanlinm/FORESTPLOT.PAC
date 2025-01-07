@@ -4,7 +4,7 @@
 · 我为它取了一个好听的函数名 `forestify()`
 
 ## Installation
-```
+```R
 devtools::install_github("yuanlinm/FORESTPLOT.PAC")
 library(FORESTPLOT.PAC)
 
@@ -12,7 +12,7 @@ library(FORESTPLOT.PAC)
 
 ## Quick start
 
-```
+```R
 forestify(df = df,left_side_cols = c(1:4),
       right_side_cols = c(11:12),
       estimate = 'HR',
@@ -26,7 +26,7 @@ forestify(df = df,left_side_cols = c(1:4),
 
 ## FULL parameters
 
-```
+```R
 # FULL usage
 forestify(df = df,left_side_cols = c(1:4),right_side_cols = c(11:12),estimate = 'HR',lower = 'HR_lower', upper = 'HR_upper',
           bar_scale = 1, h_scale = 0.07,gap_value = 0.05,x_limit = c(0.7, 3.5),x_step = 1,x_text_size = 14,x_text_color = 'red',
@@ -35,6 +35,7 @@ forestify(df = df,left_side_cols = c(1:4),right_side_cols = c(11:12),estimate = 
           col_line_type = 'solid', col_line_color = 'pink', col_line_size = 1.2, low_line_type = 'solid', low_line_color = 'pink',
           low_line_size = 1.2, text_size = 4.6, text_color = 'steelblue', text_family = 'Times New Roman',
           p_value_col = 'P', p_value_round = 3, round_cols = c('Incidence', 'HR (95% CI)'), round_digit = 2)
+
 
 # Parameter Explanation
 #' @param df dataframe 用于绘图的总数据集，必须提供
