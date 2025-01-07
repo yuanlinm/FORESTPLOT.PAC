@@ -22,7 +22,7 @@ forestify(df = df,left_side_cols = c(1:4),
 ```
 
 ## Visualization
-![x效果展示](2321736243237_.pic.jpg)
+![x效果展示](WechatIMG232.jpg)
 
 
 ## FULL parameters
