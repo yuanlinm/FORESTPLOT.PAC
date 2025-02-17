@@ -18,11 +18,13 @@ forestify(df = df,left_side_cols = c(1:4),
       right_side_cols = c(11:12),
       estimate = 'HR',
       lower = 'HR_lower',
-      upper = 'HR_upper')
+      upper = 'HR_upper',
+      p_value_col = 'P'
+)
 ```
 
 ## Visualization
-![x效果展示](WechatIMG232.jpg)
+![x效果展示](temp.png)
 
 
 ## FULL parameters
@@ -73,9 +75,9 @@ forestify(df = df,left_side_cols = c(1:4),right_side_cols = c(11:12),estimate = 
 #' @param text_size num，指定全局文字的大小，默认为4.5
 #' @param text_color chr，指定全局文字的颜色，默认为black
 #' @param text_family chr，指定全局文字的字体，默认为Arial
-#' @param p_value_col chr，指定P值列的列名用于对P值进行round，默认为NULL，若指定则p_value_round不能为空
-#' @param p_value_round num，指定P值列round保留小数位数，，默认为NULL，若指定则p_value_col不能为空
-#' @param round_cols chr_vector，字符串向量，指定需要round的列名，默认为NULL，若指定则round_digit不能为空
-#' @param round_digit num，指定round列保留小数位数，，默认为NULL，若指定则round_cols不能为空
+#' @param p_value_col chr，指定P值列的列名用于对P值进行round，默认为NULL
+#' @param p_value_round num，指定P值列round保留小数位数，，默认为3，若指定则p_value_col不能为空
+#' @param round_cols chr_vector，字符串向量，指定需要round的列名，默认为NULL
+#' @param round_digit num，指定round列保留小数位数，，默认为2，若指定则round_cols不能为空
 
 ```
